@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$PEENG: Movie Star of Abstract Chain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('header-bg.gif') center/cover no-repeat;
+      border-radius: 20px;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+    }
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #00e6e6;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h2 {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #ccc;
+      animation: fadeInUp 1s ease-out;
+    }
+    .cta-buttons {
+      margin-top: 30px;
+    }
+    .cta-buttons button {
+      margin: 10px;
+      padding: 15px 25px;
+      border: none;
+      background: #00e6e6;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-buttons button:hover {
+      background: #00b3b3;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00e6e6;
+      text-align: center;
+    }
+    .film-cards {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+    .film-card {
+      background: rgba(255,255,255,0.05);
+      min-width: 280px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .film-card video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .film-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .token-info ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .token-info ul li::before {
+      content: '🎬';
+      margin-right: 10px;
+    }
+    .community {
+      text-align: center;
+    }
+    .community a {
+      margin: 10px;
+      display: inline-block;
+      color: #00e6e6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .community a:hover {
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-style: italic;
+      color: #ccc;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐧🎬 $PEENG: The First Movie Star on Abstract Chain</h1>
+    <h2>Meet Peeng — Abstract Chain’s First Movie Star</h2>
+    <p>With 3D glasses, frosty swagger, and a sixth sense for pumps, Peeng isn’t just a penguin… He’s the main character of crypto’s weirdest chain.</p>
+    <div class="cta-buttons">
+      <button>🎟 Mint $PEENG</button>
+      <button>📖 Read Lore</button>
+      <button>📈 View Chart</button>
+    </div>
+  </header>
+
+  <section id="about">
+    <h3>🧊 The Story So Far</h3>
+    <p>While the rest of the Abstract Chain was minting rocks and rugs, Peeng was starring in films, flipping tokens, and cashing royalty checks in frozen ETH.<br>
+    Born from a glitch in the codec, he emerged with alpha vision — and the glasses to prove it.<br>
+    Peeng doesn’t chase trends. He directs them.</p>
+    <img src="peeng-story.jpg" alt="Peeng Scene" style="width:100%; border-radius:10px; margin-top:20px;"/>
+  </section>
+
+  <section id="filmography">
+    <h3>🎞 Filmography</h3>
+    <div class="film-cards">
+      <div class="film-card">
+        <video src="waddle-wars.mp4" autoplay loop muted></video>
+        <h4>🎥 Waddle Wars: Return of the Dip</h4>
+        <p>The legendary resistance against cold wallets and colder hearts.</p>
+      </div>
+      <div class="film-card">
+        <video src="gaslight-glacier.mp4" autoplay loop muted></video>
+        <h4>🎥 Gaslight Glacier</h4>
+        <p>The psychological thriller where the rug was inside us all.</p>
+      </div>
+      <div class="film-card">
+        <video src="fast-fomoless.mp4" autoplay loop muted></video>
+        <h4>🎥 The Fast & the FOMOless</h4>
+        <p>Racing through Abstract Chain, one meme block at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="token-info">
+    <h3>🛠 What Is $PEENG?</h3>
+    <p>Meme coin. Movie icon. Powered by vibes, vision, and volatility.<br>
+    Built for Abstract Chain — no roadmap, just plot twists.</p>
+    <h4>Tokenomics:</h4>
+    <ul>
+      <li>🔄 Fair launch</li>
+      <li>💧 Liquidity locked</li>
+      <li>🧊 100% cool</li>
+    </ul>
+  </section>
+
+  <section class="community">
+    <h3>📣 Join the cast. Steal the scene.</h3>
+    <p>Become part of Peeng’s cinematic universe.</p>
+    <a href="#">Telegram</a> | 
+    <a href="#">X (Twitter)</a> | 
+    <a href="#">Chart</a> | 
+    <a href="#">Buy Now</a>
+  </section>
+
+  <footer>
+    🎬 “Cold wallet. Hot takes. Legendary scenes.”<br>
+    Welcome to $PEENG — a meme coin masterpiece.
+  </footer>
+
+  <script>
+    // Optionally, you could add interactive elements here later
+    console.log('Welcome to $PEENG cinematic universe');
+  </script>
+</body>
+</html>

@@ -1,0 +1,1321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$PEENG</title>
+  <link rel="shortcut icon" href="images/r3.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
+
+<style>
+.loader_bg{
+    position: fixed;
+    z-index: 999999;
+    background: url('images/bg.jpg');
+    width: 100%;
+    height: 100%;
+}
+.loader{
+    border: 0 soild transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+}
+.loader:before, .loader:after{
+    content: '';
+    border: 1em solid #ff5733;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader:before{
+    animation-delay: .5s;
+}
+</style>
+<div class="loader_bg">
+    <div class="loader"></div>
+	 <div style="display:flex; flex-direction:column; align-items:center; gap:20px; margin:0; height:100vh; display:flex; justify-content:center; align-items:center;">
+    <img src="images/head.png" alt="Image 1"
+         style="max-width:90vw; max-height:40vh; width:auto; height:auto; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+    
+    <img src="images/we.jpg" alt="Image 2"
+         style="max-width:90vw; max-height:40vh; width:auto; height:auto; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+  </div>
+</div>
+ 
+ <div class="preloader" id="preloader">
+  <div class="video-container">
+    <video id="preloaderVideo" autoplay muted playsinline>
+      <source src="clip.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+
+<style>
+  /* Fullscreen preloader wrapper */
+  .preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #000; /* Or any color like 'pink' */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Responsive video container */
+  .video-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #preloaderVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the screen */
+  }
+</style>
+
+<script>
+  // Automatically hide preloader after video ends (or after fixed time)
+  const preloader = document.getElementById('preloader');
+  const video = document.getElementById('preloaderVideo');
+
+  video.addEventListener('ended', () => {
+    preloader.style.display = 'none';
+  });
+
+  // Fallback in case video doesn't trigger "ended"
+  setTimeout(() => {
+    preloader.style.display = 'none';
+  }, 18000); // Hide after 8 seconds (adjust as needed)
+</script>
+
+  <div class="wrapper">
+    <img style="
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%);
+          z-index: -1;
+          width: 100%;
+          min-width: 1280px;
+        " src="images/elipse.svg" alt="">
+    <header class="header">
+      <div class="header__container container">
+        <a class="header__logo" href="index.html">
+            <img src="images/peengbase.png" alt="">
+        </a>
+        <nav class="header__nav">
+          <a href="#about">About</a>
+          <a href="#tokenomics">Tokenomics</a>
+          <a href="#how-to-buy">How to buy?</a>
+          <a href="#battle">$PEENG</a>
+          <a href="#roadmap">Roadmap</a>
+        </nav>
+		  
+        <a class="header__btn btn" href="https://scrweb.vercel.app/pfp" target="_blank">Mint PFP</a>
+        <button class="header__burger btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <section id="home" class="hero">
+      <style>
+        @media screen and (max-width: 1280px) {
+          .hero__glare {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            width: 125vw;
+            height: 125vw;
+            -o-object-fit: cover;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            animation: glare 5s linear backwards infinite;
+          }
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .hero__glare {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            width: 140vw;
+            height: 140vw;
+            /* Adjusted height for better visibility */
+            -o-object-fit: cover;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            animation: glare 5s linear backwards infinite;
+          }
+        }
+
+        @media screen and (max-width: 2200px) {
+          .hero__glare {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            width: 140vw;
+            height: 140vw;
+            /* Adjusted height for better visibility */
+            -o-object-fit: cover;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            animation: glare 5s linear backwards infinite;
+          }
+        }
+
+        @media screen and (max-width: 640px) {
+          .hero__glare {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            width: 265vw;
+            /* Adjusted width for smaller screens */
+            height: 265vw;
+            /* Adjusted height for smaller screens */
+            -o-object-fit: cover;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            animation: glare 5s linear backwards infinite;
+          }
+        }
+      </style>
+
+
+      <img class="hero__clouds" src="hero-clouds-ed.svg" alt="">
+      <img class="hero__clouds" src="images/hero-clouds-ed-new.svg" alt="">
+		<img class="hero__cat" src="intro.gif" style="width:100%">
+      <style>
+        @media screen and (max-width: 1023.98px) {
+          .hero__cat {
+            width: 400px !important;
+          }
+        }
+
+        @media screen and (max-width: 640px) {
+          .hero__cat {
+            width: 400px !important;
+          }
+        }
+
+
+        @media screen and (max-width: 1280px) {
+          .hero__cat {
+            width: 430px !important;
+          }
+        }
+
+        @media screen and (max-width: 390px) {
+          .hero__cat {
+            width: 380px !important;
+          }
+        }
+
+        @media screen and (max-width: 2200px) {
+          .hero__cat {
+            width: 430px;
+          }
+        }
+      </style>
+
+
+  <style>
+    /* Default: hide mobile image */
+    .mobile-image {
+      display: none;
+    }
+
+    /* Show desktop image only on screens wider than 768px */
+    @media (min-width: 768px) {
+      .desktop-image {
+        display: block;
+		margin-top:770px
+      }
+      .mobile-image {
+        display: none;
+		margin-top:170px;
+      }
+    }
+
+    /* Show mobile image only on screens smaller than 768px */
+    @media (max-width: 767px) {
+      .desktop-image {
+        display: none;
+		margin-top:770px
+      }
+      .mobile-image {
+        display: block;
+		margin-top:170px;
+      }
+    }
+  </style>
+
+  <!-- Image for desktop -->
+  <div class="desktop-image">
+  <div class="hero__container container">
+        <p class="hero__text">
+           $PEENG: The First Movie Star on Solana
+        </p>
+        <div class="hero__socials">
+          <a class="hero__social-btn btn btn_icon" href="https://t.me/peengverify" target="_blank">
+            <svg width="43" height="43" viewbox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.603 6.80442C36.603 6.80442 40.0026 5.4788 39.7193 8.69818C39.6249 10.0238 38.775 14.6635 38.1139 19.682L35.8475 34.548C35.8475 34.548 35.6587 36.7258 33.9588 37.1045C32.259 37.4832 29.7093 35.7789 29.2371 35.4001C28.8593 35.1161 22.1546 30.8551 19.7936 28.772C19.1326 28.2039 18.3771 27.0676 19.8881 25.742L29.8037 16.2732C30.9369 15.137 32.0701 12.4857 27.3484 15.7051L14.1276 24.7005C14.1276 24.7005 12.6166 25.6473 9.78364 24.7951L3.64536 22.9014C3.64536 22.9014 1.37892 21.4811 5.25075 20.0607C14.6942 15.6103 26.3097 11.0653 36.603 6.80442Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="hero__social-btn btn btn_icon" href="https://x.com/peengonsol" target="_blank">
+            <svg width="39" height="39" viewbox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27.9541 5.34119H32.5933L22.4073 17.8633L34.3078 34.8498H24.9689L17.6572 24.5272L9.28649 34.8498H4.64732L15.4384 21.4566L4.04221 5.34119H13.613L20.2188 14.7709L27.9541 5.34119ZM26.3304 31.9098H28.9021L12.2616 8.17227H9.49828L26.3304 31.9098Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="hero__social-btn btn btn_icon" href="https://dexscreener.com/solana" target="_blank">
+            <svg width="37" height="43" viewbox="0 0 37 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5026 15.4061C23.8119 14.7693 25.4777 13.8319 27.1456 12.5475C27.4973 13.2599 27.5358 13.8815 27.3546 14.3835C27.2262 14.7373 26.9843 15.045 26.6661 15.2898C26.3216 15.5543 25.8913 15.7469 25.4157 15.851C24.5132 16.0493 23.4595 15.9336 22.5026 15.4061ZM22.7296 21.9311L24.4627 22.9076C20.924 24.8423 19.9621 28.4348 18.8193 31.9338C17.6767 28.4348 16.7146 24.8423 13.1761 22.9076L14.9092 21.9311C15.0768 21.8693 15.2201 21.7573 15.3185 21.6112C15.4169 21.4651 15.4654 21.2923 15.457 21.1177C15.2982 17.8407 16.2053 16.3916 17.4288 15.4817C17.8676 15.1558 18.3467 14.9921 18.8193 14.9921C19.292 14.9921 19.771 15.1558 20.21 15.4817C21.4335 16.3916 22.3406 17.8407 22.1818 21.1177C22.1734 21.2923 22.2218 21.4651 22.3202 21.6112C22.4187 21.7573 22.5619 21.8693 22.7296 21.9311ZM18.8193 0.533936C20.8226 0.586401 22.8309 0.96577 24.5738 1.70377C25.7808 2.21549 26.907 2.89142 27.9267 3.6997C28.3872 4.06459 28.7664 4.4171 29.1842 4.82291C30.3108 4.86091 31.9573 3.64 32.7217 2.49758C31.4062 6.70459 25.4031 11.6727 21.2472 13.5737C21.2455 13.573 21.2443 13.572 21.243 13.5712C20.4972 13.0157 19.6583 12.7379 18.8193 12.7379C17.9803 12.7379 17.1416 13.0157 16.3957 13.5712C16.3945 13.5719 16.3933 13.5732 16.3916 13.5737C12.2355 11.6727 6.23262 6.70459 4.91711 2.49758C5.68137 3.64 7.32785 4.86091 8.45447 4.82291C8.87234 4.41724 9.25154 4.06459 9.71192 3.6997C10.7317 2.89142 11.8579 2.21549 13.0648 1.70377C14.8079 0.96577 16.8162 0.586401 18.8193 0.533936ZM15.136 15.4061C13.8269 14.7693 12.1609 13.8319 10.4931 12.5475C10.1415 13.2599 10.103 13.8815 10.284 14.3835C10.4125 14.7373 10.6545 15.045 10.9725 15.2898C11.3172 15.5543 11.7474 15.7469 12.2231 15.851C13.1256 16.0493 14.1792 15.9336 15.136 15.4061Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M28.9723 10.9736C29.8905 10.0697 30.6995 9.06927 31.3501 8.17651L31.6805 8.78314C32.7442 10.8591 33.2969 12.9267 33.2969 15.2536L33.2946 18.9459L33.3146 20.86C33.3916 25.5591 34.4339 30.3135 36.795 34.6644L31.855 30.7786L28.3596 36.3117L24.6874 32.9395L18.8193 42.2288L12.9513 32.9397L9.27922 36.3118L5.7838 30.7787L0.843628 34.6645C3.20472 30.3136 4.24703 25.5593 4.32421 20.8602L4.34418 18.9461L4.3419 15.2537C4.3419 12.9267 4.89444 10.8591 5.95843 8.78328L6.28869 8.17665C6.93924 9.06941 7.74815 10.0697 8.66648 10.9738L8.37972 11.5548C7.82262 12.6833 7.63815 13.9451 8.07214 15.1451C8.3519 15.9181 8.8625 16.5809 9.52075 17.0869C10.1599 17.5783 10.9163 17.9096 11.7082 18.0835C12.2241 18.1968 12.7497 18.2434 13.2718 18.2275C13.15 18.9013 13.0968 19.6 13.0933 20.312L8.43337 22.9375L12.0294 24.9038C12.3168 25.061 12.5904 25.2411 12.8474 25.4422C15.8121 28.0388 17.5945 35.7204 18.8195 39.4725C20.0445 35.7204 21.8268 28.0388 24.7917 25.4422C25.0487 25.241 25.3223 25.0609 25.6097 24.9038L29.2057 22.9375L24.5456 20.312C24.5422 19.6 24.4889 18.9013 24.3671 18.2275C24.8893 18.2434 25.4148 18.1968 25.9307 18.0835C26.7226 17.9096 27.4792 17.5783 28.1182 17.0869C28.7763 16.5809 29.287 15.9181 29.5666 15.1451C30.0008 13.9451 29.8162 12.6834 29.2592 11.5548L28.9725 10.9738L28.9723 10.9736Z" fill="currentColor"></path>
+              </g>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+ </div>
+  <!-- Image for mobile -->
+  <div class="mobile-image">
+  <div class="hero__container container"">
+        <p class="hero__text">
+           $PEENG: The First Movie Star on Solana
+        </p>
+        <div class="hero__socials">
+          <a class="hero__social-btn btn btn_icon" href="https://web.telegram.org/" target="_blank">
+            <svg width="43" height="43" viewbox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.603 6.80442C36.603 6.80442 40.0026 5.4788 39.7193 8.69818C39.6249 10.0238 38.775 14.6635 38.1139 19.682L35.8475 34.548C35.8475 34.548 35.6587 36.7258 33.9588 37.1045C32.259 37.4832 29.7093 35.7789 29.2371 35.4001C28.8593 35.1161 22.1546 30.8551 19.7936 28.772C19.1326 28.2039 18.3771 27.0676 19.8881 25.742L29.8037 16.2732C30.9369 15.137 32.0701 12.4857 27.3484 15.7051L14.1276 24.7005C14.1276 24.7005 12.6166 25.6473 9.78364 24.7951L3.64536 22.9014C3.64536 22.9014 1.37892 21.4811 5.25075 20.0607C14.6942 15.6103 26.3097 11.0653 36.603 6.80442Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="hero__social-btn btn btn_icon" href="https://x.com/home" target="_blank">
+            <svg width="39" height="39" viewbox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27.9541 5.34119H32.5933L22.4073 17.8633L34.3078 34.8498H24.9689L17.6572 24.5272L9.28649 34.8498H4.64732L15.4384 21.4566L4.04221 5.34119H13.613L20.2188 14.7709L27.9541 5.34119ZM26.3304 31.9098H28.9021L12.2616 8.17227H9.49828L26.3304 31.9098Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="hero__social-btn btn btn_icon" href="https://dexscreener.com/solana" target="_blank">
+            <svg width="37" height="43" viewbox="0 0 37 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5026 15.4061C23.8119 14.7693 25.4777 13.8319 27.1456 12.5475C27.4973 13.2599 27.5358 13.8815 27.3546 14.3835C27.2262 14.7373 26.9843 15.045 26.6661 15.2898C26.3216 15.5543 25.8913 15.7469 25.4157 15.851C24.5132 16.0493 23.4595 15.9336 22.5026 15.4061ZM22.7296 21.9311L24.4627 22.9076C20.924 24.8423 19.9621 28.4348 18.8193 31.9338C17.6767 28.4348 16.7146 24.8423 13.1761 22.9076L14.9092 21.9311C15.0768 21.8693 15.2201 21.7573 15.3185 21.6112C15.4169 21.4651 15.4654 21.2923 15.457 21.1177C15.2982 17.8407 16.2053 16.3916 17.4288 15.4817C17.8676 15.1558 18.3467 14.9921 18.8193 14.9921C19.292 14.9921 19.771 15.1558 20.21 15.4817C21.4335 16.3916 22.3406 17.8407 22.1818 21.1177C22.1734 21.2923 22.2218 21.4651 22.3202 21.6112C22.4187 21.7573 22.5619 21.8693 22.7296 21.9311ZM18.8193 0.533936C20.8226 0.586401 22.8309 0.96577 24.5738 1.70377C25.7808 2.21549 26.907 2.89142 27.9267 3.6997C28.3872 4.06459 28.7664 4.4171 29.1842 4.82291C30.3108 4.86091 31.9573 3.64 32.7217 2.49758C31.4062 6.70459 25.4031 11.6727 21.2472 13.5737C21.2455 13.573 21.2443 13.572 21.243 13.5712C20.4972 13.0157 19.6583 12.7379 18.8193 12.7379C17.9803 12.7379 17.1416 13.0157 16.3957 13.5712C16.3945 13.5719 16.3933 13.5732 16.3916 13.5737C12.2355 11.6727 6.23262 6.70459 4.91711 2.49758C5.68137 3.64 7.32785 4.86091 8.45447 4.82291C8.87234 4.41724 9.25154 4.06459 9.71192 3.6997C10.7317 2.89142 11.8579 2.21549 13.0648 1.70377C14.8079 0.96577 16.8162 0.586401 18.8193 0.533936ZM15.136 15.4061C13.8269 14.7693 12.1609 13.8319 10.4931 12.5475C10.1415 13.2599 10.103 13.8815 10.284 14.3835C10.4125 14.7373 10.6545 15.045 10.9725 15.2898C11.3172 15.5543 11.7474 15.7469 12.2231 15.851C13.1256 16.0493 14.1792 15.9336 15.136 15.4061Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M28.9723 10.9736C29.8905 10.0697 30.6995 9.06927 31.3501 8.17651L31.6805 8.78314C32.7442 10.8591 33.2969 12.9267 33.2969 15.2536L33.2946 18.9459L33.3146 20.86C33.3916 25.5591 34.4339 30.3135 36.795 34.6644L31.855 30.7786L28.3596 36.3117L24.6874 32.9395L18.8193 42.2288L12.9513 32.9397L9.27922 36.3118L5.7838 30.7787L0.843628 34.6645C3.20472 30.3136 4.24703 25.5593 4.32421 20.8602L4.34418 18.9461L4.3419 15.2537C4.3419 12.9267 4.89444 10.8591 5.95843 8.78328L6.28869 8.17665C6.93924 9.06941 7.74815 10.0697 8.66648 10.9738L8.37972 11.5548C7.82262 12.6833 7.63815 13.9451 8.07214 15.1451C8.3519 15.9181 8.8625 16.5809 9.52075 17.0869C10.1599 17.5783 10.9163 17.9096 11.7082 18.0835C12.2241 18.1968 12.7497 18.2434 13.2718 18.2275C13.15 18.9013 13.0968 19.6 13.0933 20.312L8.43337 22.9375L12.0294 24.9038C12.3168 25.061 12.5904 25.2411 12.8474 25.4422C15.8121 28.0388 17.5945 35.7204 18.8195 39.4725C20.0445 35.7204 21.8268 28.0388 24.7917 25.4422C25.0487 25.241 25.3223 25.0609 25.6097 24.9038L29.2057 22.9375L24.5456 20.312C24.5422 19.6 24.4889 18.9013 24.3671 18.2275C24.8893 18.2434 25.4148 18.1968 25.9307 18.0835C26.7226 17.9096 27.4792 17.5783 28.1182 17.0869C28.7763 16.5809 29.287 15.9181 29.5666 15.1451C30.0008 13.9451 29.8162 12.6834 29.2592 11.5548L28.9725 10.9738L28.9723 10.9736Z" fill="currentColor"></path>
+              </g>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+ </div>
+
+      
+    </section>
+	
+    <section class="community">
+      <style>
+        .community {
+          margin-top: -91px;
+          position: relative;
+          z-index: 2;
+          background-size: cover;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community {
+            margin-top: -116px;
+          }
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community {
+            background-position: top left;
+          }
+        }
+
+        .community__marque_top {
+          width: 120%;
+          transform: rotate(0deg) translateX(-5vw) translateY(60px);
+          border-top: 6px solid #000;
+          border-bottom: 6px solid #000;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__marque_top {
+            transform: rotate(0deg) translateX(-5vw) translateY(110px);
+          }
+        }
+
+        .community__marque_bottom {
+          background: #13205f;
+          color: #80a4a7;
+          transform: rotate(1deg) translateY(20px);
+          border-top: 6px solid #000;
+          border-bottom: 6px solid #000;
+        }
+
+        .community__container {
+          padding: 100px 15px 50px 15px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__container {
+            flex-direction: column-reverse;
+          }
+        }
+
+        .community__col {
+          display: flex;
+          flex-direction: column;
+          max-width: 740px;
+          width: 100%;
+          gap: 32px;
+          color: #fff;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__col {
+            align-items: center;
+            text-align: center;
+          }
+        }
+
+        .community__illustration {
+          max-width: 41%;
+          margin-right: 5vw;
+          animation: community-illustration 2s ease-in-out infinite alternate;
+        }
+
+        @media screen and (max-width: 767.98px) {
+          .community__illustration {
+            max-width: 80%;
+            margin-top: 7vh;
+          }
+        }
+
+        .community__image {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          animation: community-illustration 2s ease-in-out infinite alternate;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__image {
+            max-width: 80%;
+            margin-top: 20px;
+          }
+        }
+
+        .community__title {
+          font-size: 100px;
+          line-height: 70%;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__title {
+            font-size: 72px;
+          }
+        }
+
+        @media screen and (max-width: 767.98px) {
+          .community__title {
+            font-size: 64px;
+          }
+        }
+
+        .community__text {
+          font-size: 24px;
+        }
+
+        .community__text_imp {
+          font-size: 30px;
+          color: #f9ff83;
+        }
+
+        .community__text_imp span {
+          font-size: 45px;
+          color: #051937;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .community__text {
+            font-size: 20px;
+          }
+        }
+
+        @media screen and (max-width: 767.98px) {
+          .community__text {
+            font-size: 18px;
+          }
+        }
+
+        .community__btns {
+          display: flex;
+          gap: 32px;
+        }
+
+        @media screen and (max-width: 640px) {
+          .community__btns {
+            gap: 10px;
+          }
+        }
+
+        .community__btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 12px;
+          color: #000;
+          font-size: 24px;
+          padding: 20px 32px;
+          text-decoration: none;
+          border: none;
+        }
+
+        .community__btn_red {
+          background: url("../images/button-background_red_1.svg") center center no-repeat;
+          background-size: contain;
+          padding: 20px 50px;
+        }
+
+        .community__btn_gray {
+          color: #fff;
+          background: url("../images/button-background_gray.svg") center center no-repeat;
+          background-size: contain;
+        }
+
+        .marque {
+          width: 106%;
+          overflow: hidden;
+          /*background: #F7683C;*/
+          background: #86D1E6;
+          color: #363544;
+          font-size: 32px;
+          padding: 12px 0;
+        }
+
+        .marque div {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          width: max-content;
+          text-wrap: nowrap;
+          animation: marque 360s linear infinite both;
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .marque {
+            font-size: 24px;
+          }
+        }
+
+        @keyframes marque {
+          0% {
+            transform: translateX(0%);
+          }
+
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes community-illustration {
+          from {
+            transform: scale(1) rotate(0deg);
+          }
+
+          to {
+            transform: scale(1.1) rotate(-10deg);
+          }
+        }
+      </style>
+
+      <div class="marque community__marque community__marque_top">
+        <div>
+          <span style="color: #efefef; display: flex; font-size: 2em; gap: 30px; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+          <span style="color: #efefef; gap: 30px; display: flex; font-size: 2em; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;">
+             $PEENG <img src="images/peengbase.png" alt=" $PEENG Image" style="width: 60px;">
+          </span>
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <section id="about" class="about">
+      <div class="about__container container" style="background-color: #86D1E6;">
+        <img class="about__illustration" src="images/aboutilus.png" alt="">
+        <div class="about__col">
+          <h2 class="about__title">
+            About
+            <style>
+              @media screen and (max-width: 1023.98px) {
+                .about__title img {
+                  position: absolute;
+                  left: 105%;
+                  top: 8%;
+                  width: 99px !important;
+                }
+              }
+
+              @media screen and (max-width: 640px) {
+                .about__title img {
+                  position: absolute;
+                  left: 102%;
+                  top: 19%;
+                  width: 76px !important;
+                }
+              }
+
+              @media screen and (max-width: 1280px) {
+                .about__title img {
+
+                  width: 204px;
+                }
+              }
+
+              @media screen and (max-width: 2200px) {
+                .about__title img {
+
+                  width: 204px;
+                }
+              }
+            </style>
+          </h2>
+          <p class="about__text" style="color: #000000;">
+            In the wild, wonderful world of Solana,
+			logic bends, colors swirl, and reality feels like a permanent disco.
+	   <br> It’s here, in this kaleidoscopic cryptosphere, that one penguin rises above the rest—Peeng, Waddling out from the Frostbyte Genesis Block, Now, he's the face (and beak) of success.
+				<br>Peeng is no ordinary penguin. 
+				With a pair of vintage 3D glasses and an appetite for chaos, 
+				🚀 From freezing floors to blockchain glory, 
+				<br>Peeng's motto is: “If it’s cold, coin it. If it’s bold, own it.”
+				 <br>So if you're surfing Solana Chain and hear a "waddle waddle ka-CHING!" echo through the nodes…
+				You’ve just crossed paths with Peeng—the happiest, richest, movie star, most unstoppable penguin in the crypto
+				sphere.
+				</p>
+          <a class="header__btn btn" href="https://pump.fun/board?coins_sort=market_cap" target="_blank">Buy $PEENG</a>
+        </div>
+      </div>
+    </section>
+      <style>
+        @media (max-width: 768px) {
+          .symbolism__video {
+            flex-direction: column;
+          }
+
+          .symbolism__img-left,
+          .symbolism__img-right {
+            width: 78% !important;
+            /* border-radius: 21%; */
+            border-top-right-radius: 21% !important;
+            border-bottom-left-radius: 0px !important;
+            /* margin: 10px 0; */
+          }
+
+          .symbolism__img-right {
+            width: 80% !important;
+            /* border-radius: 21%; */
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+            border-bottom-left-radius: 21% !important;
+            border-bottom-right-radius: 21% !important;
+            /* margin: 10px 0; */
+          }
+
+          .symbolism__video-main {
+            width: 80% !important;
+            /* border-radius: 10%; */
+          }
+        }
+
+        @media screen and (max-width: 1400px) {
+          .symbolism__video-main {
+
+            max-width: 456px !important;
+          }
+        }
+
+        @media screen and (max-width: 2200px) {
+          .symbolism__video-main {
+
+            max-width: 503px !important;
+          }
+        }
+      </style>
+    <!--</section>-->
+
+
+
+
+    <section id="tokenomics" class="tokenomics" style="background-image: url(images/r4.png); background-size: cover; background-position: center; padding: 30px 0; position: relative;">
+      <img class="tokenomics__left" src="images/tokenomics-left.svg" alt="">
+      <div class="tokenomics__container container">
+        <div class="tokenomics__inner">
+          <div class="tokenomics__col">
+            <h2 class="tokenomics__title">Tokenomics</h2>
+            <div class="tokenomics__row">
+              <div class="tokenomics__item">
+                <span>Total Supply</span>
+                <strong>1,000,000,000
+                   $PEENG</strong>
+              </div>
+              <div class="tokenomics__item">
+                <span>Buy & Sell Tax </span>
+                <strong>0%</strong>
+              </div>
+              <div class="tokenomics__item">
+                <span>Liquidity</span>
+                <strong>Locked</strong>
+              </div>
+			  <div class="tokenomics__item">
+                <span>Ownership</span>
+                <strong>Renounced</strong>
+              </div>
+              <div class="tokenomics__item">
+                <span>Launchpad</span>
+                <strong><img src="images/pumpfun.png" alt="">Pumpfun</strong>
+              </div>
+            </div>
+            <div class="tokenomics__contract contract">
+              <p class="contract__contract">NO YET</p>
+              
+              <button class="contract__btn btn">Copy</button>
+            </div>
+			<br><br>
+			<p>No backstage manipulation. No script changes. Just fair launch fame.</p>
+          </div>
+        </div>
+      </div>
+      <style>
+        /* Default styles for larger screens */
+        .top-right-photo {
+          position: absolute;
+          top: 52px;
+          right: 19px;
+          width: 240px;
+          height: auto;
+        }
+
+        /* Responsive styling for mobile devices */
+        @media (max-width: 768px) {
+          .top-right-photo {
+            position: relative;
+            top: auto;
+            right: auto;
+            width: 100%;
+            max-width: 370px;
+            /* Adjust as needed */
+            margin: 20px auto 0 auto;
+            /* Center the image and add space above */
+            display: block;
+          }
+        }
+
+        @media screen and (max-width: 2200px) {
+          .top-right-photo {
+
+            width: 466px !important;
+          }
+        }
+
+        @media screen and (max-width: 1023.98px) {
+          .top-right-photo {
+
+            width: 240px !important;
+          }
+        }
+
+
+
+        @media screen and (max-width: 1280px) {
+          .top-right-photo {
+
+            width: 240px !important;
+          }
+        }
+      </style>
+
+    </section>
+   
+    <section id="how-to-buy" class="buy">
+      <img class="buy__left" src="images/buy-left.png" alt="">
+      <img class="buy__right" src="images/buy-right.png" alt="">
+      <div class="buy__container container">
+        <h2 class="buy__title">How to buy?</h2>
+        <div class="buy__items">
+          <div class="buy__item">
+            <div class="buy__number">1</div>
+            <p class="buy__text">
+              Get on Phatom  Go to phantom.com.
+				Create an solana compatible wallet. 
+				Use phantom solana wallet, solflare.
+				or metamask wallet easy to use, can make all your swapping on the solana chain.
+				Ensure your wallet is properly secure before proceeding.
+            </p>
+          </div>
+          <div class="buy__item">
+            <div class="buy__number" style="background: #7ee3ec;">2</div>
+            <p class="buy__text">
+              Fund your account
+Click the "Buy SOl", or transfer straight from another wallet.
+            </p>
+          </div>
+          <div class="buy__item">
+            <div class="buy__number" style="background: #de1821;">3</div>
+            <p class="buy__text">
+              Navigate to the trading section on Pumpfun.
+            </p>
+          </div>
+          <div class="buy__item">
+            <div class="buy__number">4</div>
+            <p class="buy__text">
+              Buy $PEENG
+Search for and purchase PEENG tokens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="donations__title" style="margin-bottom: 37px; margin-top: 37px;">$PEENG</h2>
+    <section class="battle " id="battle" style="background-image: url(images/head.png); background-size: cover; background-position: center; padding: 30px 0; color: #fff; position: relative;">
+      <div class="container">
+        <div class="row">
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/r1.png" alt="" class="char-1">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/r2.png" alt="" class="char-2">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/r3.png" alt="" class="char-3">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/rm20.JPG" alt="" class="char-4">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/r7.png" alt="" class="char-5">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/r8.png" alt="" class="char-6">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/rm13.jpg" alt="" class="char-7">
+          </div>
+          <div class="box aos-init aos-animate" data-aos="flip-left">
+            <img src="images/rm12.jpg" alt="" class="char-8">
+          </div>
+
+
+        </div>
+      </div>
+      <style>
+        /* Base styles for the container and items */
+        .container {
+          position: relative;
+          /* z-index: 2; */
+          /* display: flex; */
+
+          justify-content: center;
+        }
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .box {
+          flex: 1 1 calc(25% - 16px);
+          margin: 8px;
+          padding: 8px;
+          box-sizing: border-box;
+          border-radius: 6px;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box img {
+          display: block;
+          max-width: 100%;
+
+          width: auto;
+          height: auto;
+          border: 0.8rem solid #151515;
+          border-radius: 6px;
+        }
+
+        /* Hover effects */
+        .box:hover {
+          transform: scale(1.03);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Media query for small devices */
+        @media (max-width: 768px) {
+          .box {
+            flex: 1 1 100%;
+            margin: 4px 0;
+          }
+        }
+      </style>
+
+    </section>
+
+
+  <style>
+    .roadmap-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 60px;
+      color: #3566af;
+    }
+
+    .roadmap-phase {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .roadmap-phase:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .roadmap-image {
+      flex: 1 1 40%;
+      max-width: 500px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .roadmap-image img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .roadmap-content {
+      flex: 1 1 50%;
+      animation: fadeInUp 1s ease;
+    }
+
+    .roadmap-content h3 {
+      font-size: 1.8rem;
+      color: #e6223c;
+      margin-bottom: 15px;
+    }
+
+    .roadmap-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .roadmap-content ul li {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .roadmap-phase {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .roadmap-content {
+        padding: 0 10px;
+      }
+
+      .roadmap-content ul {
+        text-align: left;
+        padding-left: 30px;
+      }
+    }
+  </style>
+
+  <div id="roadmap" class="roadmap-container">
+    <h2>🧊 Roadmap (AKA Peeng's Career Path)</h2>
+ <!-- Phase 1 -->
+    <div class="roadmap-phase">
+      <div class="roadmap-image">
+        <img src="images/rm23.JPG" alt="Phase 1 Image">
+      </div>
+      <div class="roadmap-content">
+        <h3>Act 1: </h3>
+        <ul>
+          <li>Birth of a Star</li>
+          <li>Telegram & X launch</li>
+          <li>Website live</li>
+          <li>Meme trailers begin</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="roadmap-phase">
+      <div class="roadmap-image">
+        <img src="images/rm9.jpg" alt="Phase 2 Image">
+      </div>
+      <div class="roadmap-content">
+        <h3>Act 2: </h3>
+        <ul>
+          <li>The Premiere</li>
+          <li>Launch on Pumpfun</li>
+          <li>100+ holders</li>
+          <li>Trending on X</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="roadmap-phase">
+      <div class="roadmap-image">
+        <img src="images/rm16.JPG" alt="Phase 3 Image">
+      </div>
+      <div class="roadmap-content">
+	   <h3>Act 3: </h3>
+        <ul>
+          <li>Peeng Goes Global</li>
+          <li>CEX listings</li>
+          <li>1000+ holders</li>
+          <li>Merch drops</li>
+          <li>Animated shorts</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="roadmap-phase">
+      <div class="roadmap-image">
+        <img src="images/rm17.JPG" alt="Phase 4 Image">
+      </div>
+      <div class="roadmap-content">
+        <h3>Final Scene:</h3>
+        <ul>
+          <li>Oscar-winning rug resistance. 🎖️</li>
+          <li>NFT Collection launch.</li>
+          <li>Here to stay, with a longterm mindset.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+    <section id="faq" class="faq">
+      <div class="faq__container container" style="display: flex; flex-direction: row; align-items: flex-start; flex-wrap: wrap;">
+
+      </div>
+
+      <style>
+        /* Responsive styling */
+        @media (max-width: 768px) {
+          .faq__container {
+            flex-direction: column;
+            /* Stack elements vertically */
+          }
+
+          .faq__col {
+            order: 1;
+            /* FAQ content stays on top */
+          }
+
+          .faq__image {
+            display: none;
+            /* Hide the image for smaller screens */
+          }
+
+          .faq__image-mobile {
+            display: block !important;
+            /* Display the image in the FAQ column on smaller screens */
+            padding-top: 20px;
+          }
+        }
+
+        @media (min-width: 769px) {
+          .faq__image-mobile {
+            display: none !important;
+            /* Hide mobile image on larger screens */
+          }
+        }
+      </style>
+    </section>
+
+
+    <section class="donations">
+      <div class="donations__container container">
+        <h2 class="donations__title">Disclaimer</h2>
+        <div class="donations__inner">
+          <div class="donations__list">
+            <div class="donation">
+              <div class="donation__header">
+                <img class="donation__image" src="images/peengbase.png" alt="">
+                <div class="donation__header-col">
+                  <p class="donation__text">
+                    $PEENG is not financial advice.
+                  </p>
+                </div>
+              </div>
+              <p class="donation__text">
+                It’s cinematic entertainment on the blockchain.<br>
+				All scenes based on actual penguin events.
+              </p>
+            </div>
+          </div>
+          <img class="donations__illustration" src="images/rm21.JPG" alt="">
+        </div>
+      </div>
+
+      <style>
+        .donations__inner {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .donation__header {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        /* Media query for small screens */
+        @media screen and (max-width: 1024px) {
+          .donations__inner {
+            display: block;
+          }
+
+          .donation__header {
+            display: block;
+            text-align: center;
+          }
+
+          .donations__list {
+            margin-bottom: 108%;
+          }
+
+
+          .donation__image,
+          .donations__illustration {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+          }
+
+          .donations__illustration {
+            margin-top: 20px;
+
+            display: block;
+          }
+        }
+      </style>
+    </section>
+	
+    <footer class="footer" style="background-image: url(images/head.png); background-size: cover; background-position: center; padding: 30px 0; position: relative;">
+      <div class="footer__container container">
+        <a class="footer__logo" href="index-1.htm">
+          <img src="images/logo.jpg" alt="">
+        </a>
+        <p class="footer__disclaimer">
+          All Rights Reserved @2025 $PEENG<br>
+
+        </p>
+        <div class="footer__socials">
+          <a class="footer__social-btn btn btn_icon" href="https://t.me/peengverify" target="_blank">
+            <svg width="43" height="43" viewbox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.603 6.80442C36.603 6.80442 40.0026 5.4788 39.7193 8.69818C39.6249 10.0238 38.775 14.6635 38.1139 19.682L35.8475 34.548C35.8475 34.548 35.6587 36.7258 33.9588 37.1045C32.259 37.4832 29.7093 35.7789 29.2371 35.4001C28.8593 35.1161 22.1546 30.8551 19.7936 28.772C19.1326 28.2039 18.3771 27.0676 19.8881 25.742L29.8037 16.2732C30.9369 15.137 32.0701 12.4857 27.3484 15.7051L14.1276 24.7005C14.1276 24.7005 12.6166 25.6473 9.78364 24.7951L3.64536 22.9014C3.64536 22.9014 1.37892 21.4811 5.25075 20.0607C14.6942 15.6103 26.3097 11.0653 36.603 6.80442Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="footer__social-btn btn btn_icon" href="https://x.com/peengonsol" target="_blank">
+            <svg width="39" height="39" viewbox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27.9541 5.34119H32.5933L22.4073 17.8633L34.3078 34.8498H24.9689L17.6572 24.5272L9.28649 34.8498H4.64732L15.4384 21.4566L4.04221 5.34119H13.613L20.2188 14.7709L27.9541 5.34119ZM26.3304 31.9098H28.9021L12.2616 8.17227H9.49828L26.3304 31.9098Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a class="footer__social-btn btn btn_icon" href="https://dexscreener.com/solana" target="_blank">
+            <svg width="37" height="43" viewbox="0 0 37 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5026 15.4061C23.8119 14.7693 25.4777 13.8319 27.1456 12.5475C27.4973 13.2599 27.5358 13.8815 27.3546 14.3835C27.2262 14.7373 26.9843 15.045 26.6661 15.2898C26.3216 15.5543 25.8913 15.7469 25.4157 15.851C24.5132 16.0493 23.4595 15.9336 22.5026 15.4061ZM22.7296 21.9311L24.4627 22.9076C20.924 24.8423 19.9621 28.4348 18.8193 31.9338C17.6767 28.4348 16.7146 24.8423 13.1761 22.9076L14.9092 21.9311C15.0768 21.8693 15.2201 21.7573 15.3185 21.6112C15.4169 21.4651 15.4654 21.2923 15.457 21.1177C15.2982 17.8407 16.2053 16.3916 17.4288 15.4817C17.8676 15.1558 18.3467 14.9921 18.8193 14.9921C19.292 14.9921 19.771 15.1558 20.21 15.4817C21.4335 16.3916 22.3406 17.8407 22.1818 21.1177C22.1734 21.2923 22.2218 21.4651 22.3202 21.6112C22.4187 21.7573 22.5619 21.8693 22.7296 21.9311ZM18.8193 0.533936C20.8226 0.586401 22.8309 0.96577 24.5738 1.70377C25.7808 2.21549 26.907 2.89142 27.9267 3.6997C28.3872 4.06459 28.7664 4.4171 29.1842 4.82291C30.3108 4.86091 31.9573 3.64 32.7217 2.49758C31.4062 6.70459 25.4031 11.6727 21.2472 13.5737C21.2455 13.573 21.2443 13.572 21.243 13.5712C20.4972 13.0157 19.6583 12.7379 18.8193 12.7379C17.9803 12.7379 17.1416 13.0157 16.3957 13.5712C16.3945 13.5719 16.3933 13.5732 16.3916 13.5737C12.2355 11.6727 6.23262 6.70459 4.91711 2.49758C5.68137 3.64 7.32785 4.86091 8.45447 4.82291C8.87234 4.41724 9.25154 4.06459 9.71192 3.6997C10.7317 2.89142 11.8579 2.21549 13.0648 1.70377C14.8079 0.96577 16.8162 0.586401 18.8193 0.533936ZM15.136 15.4061C13.8269 14.7693 12.1609 13.8319 10.4931 12.5475C10.1415 13.2599 10.103 13.8815 10.284 14.3835C10.4125 14.7373 10.6545 15.045 10.9725 15.2898C11.3172 15.5543 11.7474 15.7469 12.2231 15.851C13.1256 16.0493 14.1792 15.9336 15.136 15.4061Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M28.9723 10.9736C29.8905 10.0697 30.6995 9.06927 31.3501 8.17651L31.6805 8.78314C32.7442 10.8591 33.2969 12.9267 33.2969 15.2536L33.2946 18.9459L33.3146 20.86C33.3916 25.5591 34.4339 30.3135 36.795 34.6644L31.855 30.7786L28.3596 36.3117L24.6874 32.9395L18.8193 42.2288L12.9513 32.9397L9.27922 36.3118L5.7838 30.7787L0.843628 34.6645C3.20472 30.3136 4.24703 25.5593 4.32421 20.8602L4.34418 18.9461L4.3419 15.2537C4.3419 12.9267 4.89444 10.8591 5.95843 8.78328L6.28869 8.17665C6.93924 9.06941 7.74815 10.0697 8.66648 10.9738L8.37972 11.5548C7.82262 12.6833 7.63815 13.9451 8.07214 15.1451C8.3519 15.9181 8.8625 16.5809 9.52075 17.0869C10.1599 17.5783 10.9163 17.9096 11.7082 18.0835C12.2241 18.1968 12.7497 18.2434 13.2718 18.2275C13.15 18.9013 13.0968 19.6 13.0933 20.312L8.43337 22.9375L12.0294 24.9038C12.3168 25.061 12.5904 25.2411 12.8474 25.4422C15.8121 28.0388 17.5945 35.7204 18.8195 39.4725C20.0445 35.7204 21.8268 28.0388 24.7917 25.4422C25.0487 25.241 25.3223 25.0609 25.6097 24.9038L29.2057 22.9375L24.5456 20.312C24.5422 19.6 24.4889 18.9013 24.3671 18.2275C24.8893 18.2434 25.4148 18.1968 25.9307 18.0835C26.7226 17.9096 27.4792 17.5783 28.1182 17.0869C28.7763 16.5809 29.287 15.9181 29.5666 15.1451C30.0008 13.9451 29.8162 12.6834 29.2592 11.5548L28.9725 10.9738L28.9723 10.9736Z" fill="currentColor"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      const hash = new URL(anchor.href).hash;
+      if (!hash || hash === '#') return;
+      const element = document.querySelector(hash);
+      if (!element) return;
+
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    document
+      .querySelector('.header__burger')
+      .addEventListener('click', () => {
+        document.querySelector('.header').classList.toggle('header_open');
+      });
+    document.querySelector('.contract__btn').addEventListener('click', () => {
+      window.navigator.clipboard.writeText(
+        document.querySelector('.contract__contract').textContent
+      );
+    });
+    document.querySelectorAll('.accordion').forEach((accordion) => {
+      const header = accordion.querySelector('.accordion__header');
+      const body = accordion.querySelector('.accordion__body');
+
+      if (!header || !body) return;
+
+      const bodyHeight = body.scrollHeight;
+      accordion.style.setProperty('--body-height', bodyHeight + 'px');
+
+      header.addEventListener('click', (e) => {
+        accordion.classList.toggle('accordion_open');
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
